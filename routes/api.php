@@ -21,5 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('login', 'App\Http\Controllers\AuthController@login')->middleware(['api', 'cors']);
 
 Route::middleware('auth:api')->group(function () {
-    
+    Route::get('modules', 'App\Http\Controllers\ModulesController@getModules')->middleware(['api', 'cors']);
+    Route::get('modules/{id}', 'App\Http\Controllers\ModulesController@getModule')->middleware(['api', 'cors']);
 });

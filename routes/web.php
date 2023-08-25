@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/{path?}', 'index');
+Route::view('/{primary?}/{secondary?}', 'index');
 
 
 // Route::get('/', function () {

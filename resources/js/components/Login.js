@@ -13,7 +13,7 @@ const Login = () => {
       
         Auth.login(username, password).then(res => {
             console.log(res);
-            if(res && res.access_token){
+            if(res && res.user.id){
                 setLoggedin(true);
                 window.location.reload();
             }else{

@@ -17,8 +17,15 @@ export default class AuthService {
                 password
             })
         }).then(res => {
-            this.setToken(res.access_token);
-            return Promise.resolve(res);
+            if(res.user){
+                localStorage.setItem('id', res.user.id);
+                localStorage.setItem('name', res.user.name);
+                localStorage.setItem('username', res.user.username);
+                localStorage.setItem('email', res.user.email);
+
+                this.setToken(res.access_token);
+                return Promise.resolve(res);
+            }
         })
     }
 
